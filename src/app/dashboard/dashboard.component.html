@@ -1,0 +1,29 @@
+<h1 class="page-header">Dashboard</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Task ID</th>
+      <th>Task</th>
+      <th>View</th>
+      <th>Deadline</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks">
+        <td>{{task.id}}</td>
+      <td>{{task.title}}</td>
+      <td>
+        <a [routerLink]="['/tasks', task.id]" class="btn btn-info">Details</a>
+      </td>
+      <td>{{task.deadline}}</td>
+      <td *ngIf="task.done == true">
+          <p> Completed</p>
+      </td>
+      <td *ngIf="task.done == false">
+          <p> Pending</p>
+      </td>
+    </tr>
+  </tbody>
+</table>

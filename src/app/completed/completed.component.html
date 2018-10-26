@@ -1,0 +1,26 @@
+<h1 class="page-header">Completed Tasks</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Task ID</th>
+      <th>Task</th>
+      <th>View</th>
+      <th>Deadline</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let task of tasks" >
+      <tr *ngIf="task.done == true">
+        <td>{{task.id}}</td>
+      <td>{{task.title}}</td>
+      <td>
+        <a [routerLink]="['/tasks', task.id]" class="btn btn-info">Details</a>
+      </td>
+      <td>{{task.deadline}}</td>
+    <td *ngIf="task.done == true">
+        <p> Completed</p>
+    </td>
+    </tr>
+  </tbody>
+</table>

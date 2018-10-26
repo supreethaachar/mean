@@ -1,0 +1,42 @@
+<h1 class="page-header">Tasks</h1>
+<h4 class="page-sub-header">Sorted based on Time (Nearest Task First)</h4>
+
+<div class="container">
+    <div class="row card-container">
+        <div class="col-sm-8 col-md-5s col-lg-3" *ngFor="let task of tasks">
+            <div class="card">
+                <div class="card-header">
+                    
+                    <a [routerLink]="['/tasks', task.id]" class="white">
+                      {{task.id}}.. {{task.title}} 
+                    </a>
+
+                    <a>
+                        <i title="Remove"  
+                        class="pull-right glyphicon glyphicon-remove-circle" style="color:white" (click)="deleteTask(task)"></i>
+                    </a>
+
+                </div>
+                <div class="card-body">
+
+                    <div class="clearfix">
+                        <div class="pull-left card-body-left">
+                            <a href="#" class="white">
+                                <img src="assets/images/todo.png" class="card-image" />
+                            </a>
+                        </div>
+
+                  <div class="pull-left card-body-right">
+                  <div class="card-body-content">
+                      <div *ngIf = "task.done == true">
+                                <b>Status:</b> Completed                            
+                      </div>
+                      <div *ngIf = "task.done == false">
+                            <b>Status:</b> Pending                            
+                      </div> 
+                      <b>Deadline:</b> {{task.deadline}} 
+                    
+                  </div>
+                    
+                </div>
+            </div>
